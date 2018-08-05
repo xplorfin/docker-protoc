@@ -27,7 +27,12 @@ FROM golang:$go-alpine$alpine
 RUN set -ex && apk --update --no-cache add \
     bash \
     git \
-    libstdc++
+    libstdc++ \
+    curl
+
+RUN curl -sSL https://github.com/uber/prototool/releases/download/v0.6.0/prototool-$(uname -s)-$(uname -m) \
+    -o /usr/local/bin/prototool && \
+    chmod +x /usr/local/bin/prototool
 
 RUN go get -u google.golang.org/grpc
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
