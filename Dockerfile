@@ -105,3 +105,10 @@ RUN chmod +x /usr/local/bin/generate_gateway.sh
 
 WORKDIR /defs
 ENTRYPOINT [ "generate_gateway.sh" ]
+
+FROM gen-grpc-gateway as protoc-mono
+
+COPY mono/entrypoint.sh /usr/local/bin/mono.sh
+RUN chmod +x /usr/local/bin/mono.sh
+
+ENTRYPOINT [ "mono.sh" ]
