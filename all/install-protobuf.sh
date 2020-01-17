@@ -19,11 +19,13 @@ make install
 cd /tmp
 
 git clone -b v$1.x --recursive -j8 https://github.com/grpc/grpc
-cd /tmp/grpc
+cd /tmp/grpc/third_party/protobuf
+git checkout 6d4e7fd
+cd ../..
 CFLAGS="-Wno-cast-function-type" make
 make install
 # php support
-git submodule update --init
+#git submodule update --init
 make grpc_php_plugin
 
 cp /tmp/grpc/bins/opt/protobuf/protoc /usr/local/bin/
