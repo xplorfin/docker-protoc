@@ -1,10 +1,10 @@
 # gRPC/Protocol Buffer Compiler Containers
 
-[![Build Status](https://dev.azure.com/namely/protoc-all/_apis/build/status/namely.docker-protoc?branchName=master)](https://dev.azure.com/namely/protoc-all/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/xplorfin/protoc-all/_apis/build/status/xplorfin.docker-protoc?branchName=master)](https://dev.azure.com/namely/protoc-all/_build/latest?definitionId=1&branchName=master)
 
 This repository contains support for various Docker images that wrap `protoc`,
 `prototool`, `grpc_cli` commands with [gRPC](https://github.com/grpc/grpc) support
-in a variety of languages removing the need to install and manage these commands locally. 
+in a variety of languages removing the need to install and manage these commands locally.
 It relies on setting a simple volume to the docker container,
 usually mapping the current directory to `/defs`, and specifying the file and
 language you want to generate.
@@ -128,7 +128,7 @@ listens on port `80` for HTTP traffic.
 
 The gateway is configured using [spf13/viper](https://github.com/spf13/viper), see [gwy/templates/config.yaml.tmpl](https://github.com/namely/docker-protoc/blob/master/gwy/templates/config.yaml.tmpl) for configuration options.
 
-To configure your gateway to run under a prefix, set proxy.api-prefix to that prefix. For example, if you have `(google.api.http) = '/foo/bar'`, and set `proxy.api-prefix` to `/api/'`, your gateway will listen to requests on `'/api/foo/bar'`. This can also be set with the environment variable `<SERVICE>_PROXY_API-PREFIX` where `<SERVICE>` is the name of the service generating the gateway. 
+To configure your gateway to run under a prefix, set proxy.api-prefix to that prefix. For example, if you have `(google.api.http) = '/foo/bar'`, and set `proxy.api-prefix` to `/api/'`, your gateway will listen to requests on `'/api/foo/bar'`. This can also be set with the environment variable `<SERVICE>_PROXY_API-PREFIX` where `<SERVICE>` is the name of the service generating the gateway.
 
 See [gwy/test.sh](https://github.com/namely/docker-protoc/blob/master/gwy/test.sh) for an example of how to set the prefix with an environment variable.
 
