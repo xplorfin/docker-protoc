@@ -15,7 +15,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'namely-protoc'
+    containerRegistry: 'xplorfin'
     command: 'login'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
 
