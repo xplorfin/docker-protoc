@@ -10,6 +10,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
 - script: make tag-latest
   displayName: 'Build and Tag'
